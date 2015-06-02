@@ -12,6 +12,7 @@ GEM
       multi_json
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    humanize (1.1.0)
     influxdb (0.1.8)
       json
     json (1.8.2)
@@ -24,4 +25,5 @@ PLATFORMS
 DEPENDENCIES
   benchmark-ips
   elasticsearch
+  humanize
   influxdb
