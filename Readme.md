@@ -1,28 +1,75 @@
-### Benchmark Elasticsearch vs InfluxDB for Timeseries
+# Benchmark Elasticsearch vs InfluxDB for Timeseries
 
 ```Comparison:
-         influx_add_data:      160.8 i/s
-  elasticsearch_add_data:      144.4 i/s - 1.11x slower
-elasticsearch_query_data:       52.9 i/s - 3.04x slower
-       influx_query_data:       23.7 i/s - 6.78x slower```
-
-With deleting data at the end (edited)
+         influx_add_data:        1.4 i/s
+  elasticsearch_add_data:        1.0 i/s - 1.36x slower
+       influx_query_data:        1.0 i/s - 1.31x slower
+elasticsearch_query_data:        0.4 i/s - 3.38x slower```
 
 ```Comparison:
-         influx_add_data:      153.5 i/s
-  elasticsearch_add_data:      124.2 i/s - 1.24x slower
-elasticsearch_query_data:       74.5 i/s - 2.06x slower
-       influx_query_data:       17.3 i/s - 8.88x slower```
-
-
-Just comparing adding data
+         influx_add_data:        1.4 i/s
+  elasticsearch_add_data:        1.0 i/s - 1.42x slower
+       influx_query_data:        0.9 i/s - 1.56x slower
+elasticsearch_query_data:        0.4 i/s - 3.46x slower```
 
 ```Comparison:
-       influx_add_data:      143.2 i/s
-elasticsearch_add_data:       98.8 i/s - 1.45x slower```
-
-Now just comparing data quering
+         influx_add_data:        1.3 i/s
+  elasticsearch_add_data:        1.0 i/s - 1.39x slower
+       influx_query_data:        0.9 i/s - 1.44x slower
+elasticsearch_query_data:        0.4 i/s - 3.65x slower```
 
 ```Comparison:
-elasticsearch_query_data:       86.8 i/s
-       influx_query_data:       20.5 i/s - 4.23x slower```
+         influx_add_data:        1.3 i/s
+  elasticsearch_add_data:        1.1 i/s - 1.20x slower
+       influx_query_data:        1.0 i/s - 1.31x slower
+elasticsearch_query_data:        0.3 i/s - 3.93x slower```
+
+```Comparison:
+         influx_add_data:        1.3 i/s
+  elasticsearch_add_data:        1.0 i/s - 1.29x slower
+       influx_query_data:        0.9 i/s - 1.46x slower
+elasticsearch_query_data:        0.4 i/s - 3.36x slower```
+
+## Just comparing adding data
+
+```Comparison:
+       influx_add_data:        1.3 i/s
+elasticsearch_add_data:        1.0 i/s - 1.36x slower```
+
+```Comparison:
+       influx_add_data:        1.4 i/s
+elasticsearch_add_data:        1.0 i/s - 1.33x slower```
+
+```Comparison:
+       influx_add_data:        1.7 i/s
+elasticsearch_add_data:        1.0 i/s - 1.71x slower```
+
+```Comparison:
+       influx_add_data:        1.5 i/s
+elasticsearch_add_data:        1.0 i/s - 1.48x slower```
+
+```Comparison:
+       influx_add_data:        1.4 i/s
+elasticsearch_add_data:        1.0 i/s - 1.37x slower```
+
+## Now just comparing data quering
+
+```Comparison:
+       influx_query_data:        0.9 i/s
+elasticsearch_query_data:        0.4 i/s - 2.35x slower```
+
+```Comparison:
+       influx_query_data:        1.0 i/s
+elasticsearch_query_data:        0.4 i/s - 2.50x slower```
+
+```Comparison:
+       influx_query_data:        0.9 i/s
+elasticsearch_query_data:        0.4 i/s - 2.22x slower```
+
+```Comparison:
+       influx_query_data:        1.0 i/s
+elasticsearch_query_data:        0.4 i/s - 2.38x slower```
+
+```Comparison:
+       influx_query_data:        1.0 i/s
+elasticsearch_query_data:        0.4 i/s - 2.55x slower```
