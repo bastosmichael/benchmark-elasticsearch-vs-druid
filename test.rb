@@ -1,8 +1,9 @@
 require 'benchmark/ips'
 require 'elasticsearch'
-require 'druid'
+require 'influxdb'
 
 elasticsearch_client = Elasticsearch::Client.new log: true
+influxdb_client = InfluxDB::Client.new 'test', username: 'test', password: 'test'
 index = 'test'
 
 Benchmark.ips do |x|
@@ -21,12 +22,10 @@ Benchmark.ips do |x|
     end
   end
 
-  x.report('druid_add_data') do
-    # i = 1
-    # while i < times
-    #   puts i
-    #   i += 1
-    # end
+  x.report('influx_add_data') do
+    [*1...10].each do |i|
+      influxdb_client.write_point(i.to_s, { title: "Test #{i}" })
+    end
   end
 
   # # Typical mode, runs the block as many times as it can
