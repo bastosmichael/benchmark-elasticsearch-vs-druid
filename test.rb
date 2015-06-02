@@ -3,17 +3,20 @@ require 'elasticsearch'
 require 'influxdb'
 require 'humanize'
 
+index = 'benchmark_test'
+
 elasticsearch_client = Elasticsearch::Client.new log: true
-influxdb_client = InfluxDB::Client.new 'test', username: 'test', password: 'test'
-index = 'test'
+influxdb = InfluxDB::Client.new
+influxdb.create_database(index)
+influxdb.create_database_user(index, index, index)
+influxdb_client = InfluxDB::Client.new index, username: index, password: index
 
 Benchmark.ips do |x|
-  x.config(:time => 0.01, :warmup => 2)
+  x.config(:time => 0.1, :warmup => 2)
 
   x.report('elasticsearch_add_data') do
     [*1...10].each do |i|
       elasticsearch_client.index index: index, type: index, id: i.humanize, body: { title: "Test #{i.humanize}", timestamp: Time.now.to_i }
-      # elasticsearch_client.indices.refresh index: index
     end
   end
 
@@ -39,3 +42,10 @@ Benchmark.ips do |x|
 
   x.compare!
 end
+
+[*1...10].each do |i|
+  elasticsearch_client.delete index: index, type: index, id: i.humanize
+end
+
+influxdb.delete_database(index)
+influxdb.delete_database_user(index, index)
