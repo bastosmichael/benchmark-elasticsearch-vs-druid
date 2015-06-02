@@ -48,4 +48,4 @@ end
 end
 
 influxdb.delete_database(index)
-influxdb.delete_database_user(index, index)
+# influxdb.delete_database_user(index, index)
